@@ -1,0 +1,333 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 355 100% 70%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 173 70% 55%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 42 100% 70%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 221.2 83.2% 53.3%;
+    --radius: 1rem;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 355 100% 70%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 173 70% 55%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 42 100% 70%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 224.3 76.3% 48%;
+
+    /* Dark mode specific colors */
+    --purple: 270 60% 67%;
+    --teal: 173 100% 38%;
+    --pink: 320 100% 77%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+.pet-card-shadow {
+  box-shadow: 0 10px 15px -3px rgba(255, 107, 107, 0.2), 0 4px 6px -2px rgba(255, 107, 107, 0.1);
+}
+
+.pet-card:hover .pet-card-shadow {
+  box-shadow: 0 20px 25px -5px rgba(255, 107, 107, 0.3), 0 10px 10px -5px rgba(255, 107, 107, 0.2);
+}
+
+.gradient-bg {
+  background: linear-gradient(135deg, #ff6b6b 0%, #4ecdc4 100%);
+}
+
+.gradient-text {
+  background: linear-gradient(90deg, #ff6b6b, #845ec2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Dark mode gradient styles */
+.dark .gradient-text,
+.gradient-dark-mode .gradient-text {
+  background: linear-gradient(90deg, #ff9cee, #4ecdc4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+.dark .gradient-bg,
+.gradient-dark-mode .gradient-bg {
+  background: linear-gradient(135deg, #845ec2 0%, #00c2a8 100%);
+}
+
+/* Dark mode button gradients */
+.dark .dark-gradient-button,
+.gradient-dark-mode .dark-gradient-button {
+  background: linear-gradient(90deg, #845ec2, #00c2a8);
+  border: none;
+}
+
+.dark .dark-gradient-border,
+.gradient-dark-mode .dark-gradient-border {
+  border-image: linear-gradient(90deg, #845ec2, #00c2a8) 1;
+  border-width: 1px;
+  border-style: solid;
+}
+
+.dark .dark-card-gradient,
+.gradient-dark-mode .dark-card-gradient {
+  background: linear-gradient(135deg, rgba(132, 94, 194, 0.1), rgba(0, 194, 168, 0.1));
+}
+
+.paw-pattern {
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23FF6B6B' fill-opacity='0.05' fill-rule='evenodd'%3E%3Cpath d='M36 34.15c-1.147 0-2.12-.435-2.915-1.23-.797-.796-1.196-1.768-1.196-2.917 0-1.148.4-2.12 1.195-2.915.796-.797 1.768-1.196 2.916-1.196s2.12.4 2.915 1.195c.797.796 1.196 1.768 1.196 2.916 0 1.15-.4 2.12-1.196 2.917-.796.795-1.768 1.193-2.915 1.193v.037zm-8.337-4.146c0-1.148-.4-2.12-1.196-2.915-.795-.797-1.768-1.196-2.915-1.196s-2.12.4-2.916 1.195c-.796.796-1.195 1.768-1.195 2.916 0 1.15.4 2.12 1.195 2.917.797.795 1.768 1.193 2.916 1.193s2.12-.398 2.915-1.193c.797-.796 1.196-1.768 1.196-2.917zm20.586 4.147c1.148 0 2.12-.435 2.916-1.23.796-.796 1.195-1.768 1.195-2.917 0-1.148-.4-2.12-1.195-2.915-.797-.797-1.768-1.196-2.916-1.196s-2.12.4-2.915 1.195c-.797.796-1.196 1.768-1.196 2.916 0 1.15.4 2.12 1.196 2.917.796.795 1.768 1.193 2.915 1.193v.037zm-24.732 8.979c1.148 0 2.12-.435 2.916-1.23.796-.796 1.195-1.768 1.195-2.917 0-1.148-.4-2.12-1.195-2.915-.797-.797-1.768-1.196-2.916-1.196s-2.12.4-2.915 1.195c-.797.796-1.196 1.768-1.196 2.916 0 1.15.4 2.12 1.196 2.917.796.795 1.768 1.193 2.915 1.193v.037zm12.366 0c1.148 0 2.12-.435 2.916-1.23.796-.796 1.195-1.768 1.195-2.917 0-1.148-.4-2.12-1.195-2.915-.797-.797-1.768-1.196-2.916-1.196s-2.12.4-2.915 1.195c-.797.796-1.196 1.768-1.196 2.916 0 1.15.4 2.12 1.196 2.917.796.795 1.768 1.193 2.915 1.193v.037z'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+.dark .paw-pattern,
+.gradient-dark-mode .paw-pattern {
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23845EC2' fill-opacity='0.1' fill-rule='evenodd'%3E%3Cpath d='M36 34.15c-1.147 0-2.12-.435-2.915-1.23-.797-.796-1.196-1.768-1.196-2.917 0-1.148.4-2.12 1.195-2.915.796-.797 1.768-1.196 2.916-1.196s2.12.4 2.915 1.195c.797.796 1.196 1.768 1.196 2.916 0 1.15-.4 2.12-1.196 2.917-.796.795-1.768 1.193-2.915 1.193v.037zm-8.337-4.146c0-1.148-.4-2.12-1.196-2.915-.795-.797-1.768-1.196-2.915-1.196s-2.12.4-2.916 1.195c-.796.796-1.195 1.768-1.195 2.916 0 1.15.4 2.12 1.195 2.917.797.795 1.768 1.193 2.916 1.193s2.12-.398 2.915-1.193c.797-.796 1.196-1.768 1.196-2.917zm20.586 4.147c1.148 0 2.12-.435 2.916-1.23.796-.796 1.195-1.768 1.195-2.917 0-1.148-.4-2.12-1.195-2.915-.797-.797-1.768-1.196-2.916-1.196s-2.12.4-2.915 1.195c-.797.796-1.196 1.768-1.196 2.916 0 1.15.4 2.12 1.196 2.917.796.795 1.768 1.193 2.915 1.193v.037zm-24.732 8.979c1.148 0 2.12-.435 2.916-1.23.796-.796 1.195-1.768 1.195-2.917 0-1.148-.4-2.12-1.195-2.915-.797-.797-1.768-1.196-2.916-1.196s-2.12.4-2.915 1.195c-.797.796-1.196 1.768-1.196 2.916 0 1.15.4 2.12 1.196 2.917.796.795 1.768 1.193 2.915 1.193v.037zm12.366 0c1.148 0 2.12-.435 2.916-1.23.796-.796 1.195-1.768 1.195-2.917 0-1.148-.4-2.12-1.195-2.915-.797-.797-1.768-1.196-2.916-1.196s-2.12.4-2.915 1.195c-.797.796-1.196 1.768-1.196 2.916 0 1.15.4 2.12 1.196 2.917.796.795 1.768 1.193 2.915 1.193v.037z'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+.category-card {
+  transition: all 0.3s ease;
+}
+
+.category-card:hover {
+  transform: translateY(-5px);
+}
+
+.pet-image-container {
+  overflow: hidden;
+  border-radius: 0.75rem;
+}
+
+.pet-image-container img {
+  transition: transform 0.5s ease;
+}
+
+.pet-image-container:hover img {
+  transform: scale(1.05);
+}
+
+/* Animation classes - only applied when animated mode is active */
+body.animated-mode .animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+body.animated-mode .animate-pulse-slow {
+  animation: pulse-slow 3s ease-in-out infinite;
+}
+
+body.animated-mode .animate-bounce-slow {
+  animation: bounce-slow 3s ease-in-out infinite;
+}
+
+body.animated-mode .animate-spin-slow {
+  animation: spin 8s linear infinite;
+}
+
+body.animated-mode .animate-wiggle {
+  animation: wiggle 2.5s ease-in-out infinite;
+}
+
+body.animated-mode .gradient-text {
+  background-size: 200% auto;
+  animation: shine 3s linear infinite;
+}
+
+body.animated-mode .gradient-bg {
+  background-size: 200% 200%;
+  animation: gradient-shift 5s ease infinite;
+}
+
+/* Donation page specific styles */
+.donation-amount-button {
+  transition: all 0.2s ease;
+}
+
+.donation-amount-button.selected {
+  transform: scale(1.05);
+}
+
+.donation-card {
+  transition: all 0.3s ease;
+}
+
+.donation-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Replace the problematic dark mode specific styles section with this */
+/* Dark mode specific styles */
+.dark button,
+.gradient-dark-mode button {
+  color: white;
+}
+
+.dark .bg-primary,
+.gradient-dark-mode .bg-primary {
+  background-color: hsl(var(--purple));
+}
+
+.dark .text-primary,
+.gradient-dark-mode .text-primary {
+  color: hsl(var(--purple));
+}
+
+.dark .border-primary,
+.gradient-dark-mode .border-primary {
+  border-color: hsl(var(--purple));
+}
+
+.dark .hover\:bg-primary\/10:hover,
+.gradient-dark-mode .hover\:bg-primary\/10:hover {
+  background-color: hsl(var(--purple) / 0.1);
+}
+
+.dark .from-primary,
+.gradient-dark-mode .from-primary {
+  --tw-gradient-from: hsl(var(--purple));
+}
+
+.dark .to-primary,
+.gradient-dark-mode .to-primary {
+  --tw-gradient-to: hsl(var(--purple));
+}
+
+/* Additional dark mode styles for cards and sections */
+.dark .bg-white,
+.gradient-dark-mode .bg-white {
+  background-color: black;
+}
+
+.dark .bg-background,
+.gradient-dark-mode .bg-background {
+  background-color: rgb(3, 7, 18);
+}
+
+.dark .text-secondary,
+.gradient-dark-mode .text-secondary {
+  color: hsl(var(--teal));
+}
+
+.dark .text-accent,
+.gradient-dark-mode .text-accent {
+  color: hsl(var(--accent));
+}
+
+/* Ensure dark mode text is visible */
+.dark .text-muted-foreground,
+.gradient-dark-mode .text-muted-foreground {
+  color: rgb(156, 163, 175);
+}
+
+/* Dark mode section backgrounds */
+.dark .bg-white,
+.gradient-dark-mode .bg-white {
+  @apply dark:bg-black;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes pulse-slow {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+@keyframes bounce-slow {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes wiggle {
+  0%,
+  100% {
+    transform: rotate(-3deg);
+  }
+  50% {
+    transform: rotate(3deg);
+  }
+}
+
+@keyframes shine {
+  to {
+    background-position: 200% center;
+  }
+}
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
